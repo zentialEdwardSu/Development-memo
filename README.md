@@ -25,9 +25,9 @@ Stats: ![Static Badge](https://img.shields.io/badge/Working-1a7f37)
 
 Detail: [lab_6.5840](lab_6.5840.md)
 
-### unname_DL_ACTR_MODEL_24
+### unamed_Edge_ACTR_MODEL_24
 
-A lite action recognition Model targeting to edge node
+Lightweight action recognition model for edge nodes
 
 url: X
 
