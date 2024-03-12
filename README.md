@@ -5,6 +5,16 @@ This repo is for project progress tracking
 
 ## Projects
 
+### unamed_WPF_WhiteBoard_Project
+
+**Having a offline & powerful replacement for ms-WhiteBoard is imperative!!!!!**
+
+url: X
+
+Stats: ![plan](https://img.shields.io/badge/Planing-7fb8de)
+
+Detail: X
+
 ### lab_6.5840
 
 Lab of mit6.5840
