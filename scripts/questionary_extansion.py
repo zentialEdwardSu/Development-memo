@@ -8,7 +8,11 @@ K = TypeVar('K')
 V = TypeVar('V')
 
 class custom_option():
-    ''' custom init question of specific field'''
+    ''' 
+    custom init question of specific field
+
+    return_formatter will get the answer and *args,**kwargs as input
+    '''
     def __init__(self,name:str,custom_question:questionary.Question,return_formatter:Optional[Callable] = None,*args,**kwargs):
         self.name = name
         self.custom_question:str = custom_question
@@ -57,6 +61,16 @@ def is_list_type(tp: Type) -> bool:
 
 def class_init_from_question(cls:Type[T],customoption:Optional[Dict[str,custom_option]] = {}) -> T:
     '''
+    init a class from user input
+
+    Question mag comes from the comment of the class. using format { <attribute> QuestionMsg }
+
+    cls.__init__ should be 
+    ```
+    def __init__(self,**data):
+        self.__dict__.update(data)
+    ```
+
     customoption:[
         'name':{
             'question': <Question>
@@ -68,7 +82,7 @@ def class_init_from_question(cls:Type[T],customoption:Optional[Dict[str,custom_o
     for field_name, field_type in cls.__annotations__.items():
         field_help = field.get(field_name,f'Please input {field_name}')
         # as key
-        if field_name in customoption:
+        if field_name in customoption: # we first consider key with customoption
             custom_field = customoption.get(field_name,None)
             question:questionary.Question = custom_field.custom_question
             return_formatter:Callable = custom_field.return_formatter
@@ -82,6 +96,7 @@ def class_init_from_question(cls:Type[T],customoption:Optional[Dict[str,custom_o
             continue
         # end customation
 
+        # below will derive question based on attribute type
         if is_list_type(field_type):
             # member_type = field_type.__args__
             question = questionary.text(
@@ -133,6 +148,8 @@ def ask_multiple_times(
         confrim_msg:str = 'Continue type in?',
         auto_enter:bool = False
     ) -> List[str]:
+    '''
+    Ask a question for many times, return List<answer>'''
 
     confrim_q = questionary.confirm(confrim_msg,qmark='',auto_enter=auto_enter)
     answers:List[str] = []

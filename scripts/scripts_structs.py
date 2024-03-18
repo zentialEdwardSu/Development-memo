@@ -51,6 +51,9 @@ def STATUS_formatter(ss:str) -> STATUS:
     return switcher.get(ss,STATUS.nostatus)
 
 def parsetag(status:STATUS) -> str:
+    '''
+    parsetag will parse STATUS to a shield.io's badage
+    '''
     if status == STATUS.nostatus:
         return ""
     return f"![tag]({BASE_URL}/{status})"
@@ -77,14 +80,14 @@ class ProjectSection(object):
     @classmethod
     def init_from_question(cls:Type[T]) -> T:
         customs = {
-            "Status":custom_option(
+            "Status":custom_option( # for STATUS
                 "Status",
                 questionary.select("Select Prooject Status",
                                    choices=["None","Canceled","Planing","Pending","Working","Done"],
                                    default="None"),
                 STATUS_formatter
             ),
-            "Detail":custom_option(
+            "Detail":custom_option( # to to failepath and check suffix
                 "Detail", 
                 questionary.path("Project detail(endwith .md)",
                                  file_filter=lambda path: path.endswith('.md'),
@@ -93,7 +96,7 @@ class ProjectSection(object):
         }
         return class_init_from_question(cls,customs)
 
-    def __lt__(self,other):
+    def __lt__(self,other:'ProjectSection'):
         self.Status < other.Status
 
     def __str__(self) -> str:
@@ -107,6 +110,9 @@ class ProjectSection(object):
                 '''
 
     def update_from_question(self):
+        '''
+        update attritube by asking question
+        '''
         new = ProjectSection().init_from_question()
         for attr_name in self.__dict__:
             new_attr = getattr(new,attr_name)
@@ -116,6 +122,9 @@ class ProjectSection(object):
         print(self)
 
     def generate_md(self)->List[str]:
+        '''
+        parse ProjectSection to markdown text
+        '''
         lines = []
         
         lines.append(f"{n_level_title(3,self.ProjectName)}\n") ### ProjectName
@@ -173,6 +182,9 @@ class readmeMetaData(object):
         self.Projects = Projects
 
     def persist(self,path:str,backup:bool = False):
+        '''
+        use pickle to serialize obj for buffering
+        '''
         fpath = path
         if os.path.exists(fpath) and backup:
             shutil.move(fpath,f"{fpath}.{timedelta()}.backup")
@@ -182,12 +194,17 @@ class readmeMetaData(object):
 
     @classmethod
     def init_from_persist(cls:Type[T],path:str) -> 'readmeMetaData':
+        '''
+        read buffer and get the origin obj
+        '''
         if not os.path.exists(path):
             return readmeMetaData("NOTITLE",[""],[])
         with open(path,"rb") as f:
             return pickle.load(f)
 
     def generate_readme(self,path:str):
+        '''
+        '''
         with open(path,"w") as md:
             write_with_white_line(md,n_level_title(1,self.Title))
 

@@ -2,12 +2,21 @@ def write_white_line(f):
     f.write("\n")
 
 def n_level_title(n:int,title:str) -> str:
+    '''
+    ```
+    n_level_title(2,"HelloWorld") 
+    ```
+    will return `## HelloWorld`
+    '''
     res = ""
     for i in range(n):
         res += "#"
     return f"{res} {title}"
 
 def hyperlink(show:str,link:str):
+    '''
+    return [show](link)
+    '''
     return f"[{show}]({link})"
 
 def write_with_white_line(f,context:str):
