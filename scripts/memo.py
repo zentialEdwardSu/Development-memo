@@ -82,7 +82,11 @@ def update(item: str = typer.Argument(None)):
 
     elif item=="main":
         # edit Maindescription
-        ans = questionary.text("new Maindescription",qmark=nqmark).ask()
+        ans = ask_multiple_times(
+            questionary.text("Section of description",qmark=nqmark),
+            confrim_msg="Next section?",
+            auto_enter=True
+            )
 
         if ans:
             rmeta.MainDescription = ans

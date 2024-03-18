@@ -1,6 +1,6 @@
 # DevelopmentMemo
 
-Status of my canceled/plaing/pending/working/done project
+Status of my canceled/planing/pending/working/done project
 
 **This repo is for project progress tracking**
 
