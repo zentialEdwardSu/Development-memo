@@ -17,6 +17,15 @@ A paper foucus on a new action recognition architecture
 - detail: X
 
 ---
+### go_libjpeg
+
+go implement of JFIF standard-compatible jpeg Baseline decoding process
+
+- repo: X
+- status: ![tag](https://img.shields.io/badge/Working-1a7f37)
+- detail: X
+
+---
 ### unamed_Edge_ACTR_MODEL_24
 
 Lightweight action recognition model for edge nodes
