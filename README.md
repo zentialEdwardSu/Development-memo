@@ -17,15 +17,6 @@ A paper foucus on a new action recognition architecture
 - detail: X
 
 ---
-### go_libjpeg
-
-go implement of JFIF standard-compatible jpeg Baseline decoding process
-
-- repo: X
-- status: ![tag](https://img.shields.io/badge/Working-1a7f37)
-- detail: X
-
----
 ### saint.Board
 
 Part of saint© project, saint.Board provide offline board experience base on Windows Ink api and WPF
@@ -35,6 +26,15 @@ Part of saint© project, saint.Board provide offline board experience base on Wi
 - detail: X
 
 > We are developing on UWP and we won't consider migrating to other frameworks until UWP doesn't run on Windows :D
+
+---
+### go_libjpeg
+
+go implement of JFIF standard-compatible jpeg Baseline decoding process
+
+- repo: X
+- status: ![tag](https://img.shields.io/badge/Pending-f4de89)
+- detail: X
 
 ---
 ### unamed_Edge_ACTR_MODEL_24
