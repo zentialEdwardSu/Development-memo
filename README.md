@@ -28,6 +28,15 @@ Part of saint© project, saint.Board provide offline board experience base on Wi
 > We are developing on UWP and we won't consider migrating to other frameworks until UWP doesn't run on Windows :D
 
 ---
+### hugo-theme-piatto
+
+hugo-theme-piatto is part of saint project, it's a deeply customized themes
+
+- repo: [hugo-theme-piatto](https://github.com/zentialEdwardSu/hugo-theme-piatto)
+- status: ![tag](https://img.shields.io/badge/Working-1a7f37)
+- detail: X
+
+---
 ### go_libjpeg
 
 go implement of JFIF standard-compatible jpeg Baseline decoding process
@@ -75,15 +84,6 @@ Try to build my surface dial
 - detail: X
 
 > Dial_wireless_charge_v0.0.2 pcb layout finished
-
----
-### hugo-theme-piatto
-
-Deeply customized hugo theme
-
-- repo: [hugo-theme-piatto](https://github.com/zentialEdwardSu/hugo-theme-piatto)
-- status: ![tag](https://img.shields.io/badge/Pending-f4de89)
-- detail: X
 
 ---
 ### saint.torch
