@@ -120,3 +120,12 @@ A tiny distributed OSS
 - detail: [tinyOSD](tinyOSD.md)
 
 ---
+### vscode-plugin-md-shortcut
+
+Try to provide useful key bindings for markdown editting in vscode 
+
+- repo: X
+- status: ![tag](https://img.shields.io/badge/Planing-7fb8de)
+- detail: X
+
+---
